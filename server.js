@@ -14,6 +14,8 @@ const db = low(adapter)
 //Set default db
 db.defaults({ books: []})
   .write()
+//For body parser 
+app.use(express.urlencoded({extended: false}))
 
 //Set view engine template
 app.set('view engine', 'pug')
@@ -29,7 +31,12 @@ app.get('/books/create', (req, res) => {
   res.render('create')
 })
 app.post('/books/create', (req, res) => {
-  
+  const book = {
+    id: shortid.generate(),
+    title: req.body.title,
+    description: req.body.description
+  }
+  db.get('books').push(book).write()
   res.redirect('/books')
 })
 // listen for requests :)
