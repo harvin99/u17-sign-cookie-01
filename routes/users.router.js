@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   res.render('users')
 })
 router.get('/create_user', (req, res) => {
-  res.render('create_user')
+  res.render('create_user', {users: db.get('users').value()})
 })
 router.post('/create_user', (req, res) => {
   const user = {
