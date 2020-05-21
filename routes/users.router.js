@@ -7,7 +7,7 @@ const shortid = require('shortid')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 //Set default db
-db.defaults({ books: [], users: []})
+db.defaults({ books: [], users: [], rent: []})
   .write()
 
 router.get('/', (req, res) => {

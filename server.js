@@ -7,6 +7,8 @@ const express = require("express")
 const app = express()
 const booksRouter = require('./routes/books.router.js')
 const usersRouter = require('./routes/users.router.js')
+const transactionsRouter = require('./routes/transaction.router.js')
+
 //For body parser 
 app.use(express.urlencoded({extended: false}))
 
@@ -18,7 +20,9 @@ app.get('/', (req,res) => {
   res.render('index')
 })
 app.use('/books', booksRouter)
-app.use('/users', usersRouter)// listen for requests :)
+app.use('/users', usersRouter)
+app.use('/transactions', transactionsRouter)
+// listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port)
 })
