@@ -1,10 +1,8 @@
 extend ./layout/common.pug
 block content
-  h1.text-center this is transaction page
+  h1.text-center This is transaction page
   .container
-    a.btn.btn-primary.mb-3(href='/transactions/create') New user
+    a.btn.btn-primary.mb-3(href='/transactions/create') Rent book
     ul 
-      each user in users
-        li.mb-3= user.name + ' ' + user.email + ' ' + user.phone
-          a.btn.btn-danger.ml-3.float-right(href='/users/'+ user.id + '/delete' ) Delete
-          a.btn.btn-warning.ml-3.float-right(href= '/users/'+ user.id ) Edit
+      each tran in trans
+        li.mb-3= tran.userId + ' ' + tran.bookId

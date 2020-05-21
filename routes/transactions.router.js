@@ -7,12 +7,17 @@ const shortid = require('shortid')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 //Set default db
-db.defaults({ books: [], users: [], rent: []})
+db.defaults({ books: [], users: [], rents: []})
   .write()
 
 router.get('/', (req, res) => {
-  res.render('users', {users: db.get('users').value()})
+  res.render('transactions', {trans: db.get('rents').value()})
 })
-
-
+router.get('/transactions/create', (req, res) => {
+  res.render('transactions_create')
+})
+router.post('/transactions/create', (req, res) => {
+  
+  res.redirect('/transactions')
+})
 module.exports = router

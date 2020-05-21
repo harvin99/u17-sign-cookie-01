@@ -7,7 +7,7 @@ const express = require("express")
 const app = express()
 const booksRouter = require('./routes/books.router.js')
 const usersRouter = require('./routes/users.router.js')
-const transactionsRouter = require('./routes/transaction.router.js')
+const transactionsRouter = require('./routes/transactions.router.js')
 
 //For body parser 
 app.use(express.urlencoded({extended: false}))
