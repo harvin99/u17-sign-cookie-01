@@ -9,7 +9,9 @@ const db = low(adapter)
 //Set default db
 db.defaults({ books: [], user: []})
   .write()
-
+router.get('/', (req, res) => {
+  res.render('users')
+})
 
 
 module.exports = router
