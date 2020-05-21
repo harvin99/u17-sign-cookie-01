@@ -2,6 +2,7 @@ extend ./layout/common.pug
 block content
   h1.text-center This is books page
   .container
+    a.btn.btn-primary.mb-3(href='/create') New book
     ul
       each book in list
         li= book.title

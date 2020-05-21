@@ -14,10 +14,7 @@ const db = low(adapter)
 //Set default db
 db.defaults({ books: []})
   .write()
-// Add a post
-db.get('books')
-  .push({ id: shortid.generate(), title: 'How to get smart money', description: 'Get a lot of money'})
-  .write()
+
 //Set view engine template
 app.set('view engine', 'pug')
 app.set('views', './views')
@@ -27,6 +24,13 @@ app.get('/', (req,res) => {
 })
 app.get('/books', (req, res) => {
   res.render('books', {list : db.get('books').value()})
+})
+app.get('/books/create', (req, res) => {
+  res.render('create')
+})
+app.post('/books/create', (req, res) => {
+  
+  res.redirect('/books')
 })
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
