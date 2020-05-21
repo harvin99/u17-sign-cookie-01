@@ -12,6 +12,15 @@ db.defaults({ books: [], user: []})
 router.get('/', (req, res) => {
   res.render('users')
 })
-
-
+router.get('/create_user', (req, res) => {
+  res.render('create_user')
+})
+router.post('/create_user', (req, res) => {
+  const user = {
+    id: shortid.generate(),
+    name: req.body.name,
+    
+  }
+  res.redirect('/users')
+})
 module.exports = router
