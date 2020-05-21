@@ -1,0 +1,8 @@
+extend ./layout/common.pug
+block content
+  h1.text-center This is books page
+  .container
+    ul
+      each book in list
+        li= book.title
+    
