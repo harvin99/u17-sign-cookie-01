@@ -5,15 +5,8 @@
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 const express = require("express")
 const app = express()
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const shortid = require('shortid')
-//for db
-const adapter = new FileSync('db.json')
-const db = low(adapter)
-//Set default db
-db.defaults({ books: []})
-  .write()
+const booksRouter = require('./routes/books.router.js')
+const usersRouter = require('./routes/users.router.js')
 //For body parser 
 app.use(express.urlencoded({extended: false}))
 
@@ -24,8 +17,9 @@ app.set('views', './views')
 app.get('/', (req,res) => {
   res.render('index')
 })
-
-// listen for requests :)
+app.use('/books', booksRouter)
+app.use('/users', usersRouter)// listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port)
 })
+a

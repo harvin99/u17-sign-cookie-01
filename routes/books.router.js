@@ -1,13 +1,22 @@
 const express = require('express')
 const router = express.Router()
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+const shortid = require('shortid')
+//for db
+const adapter = new FileSync('db.json')
+const db = low(adapter)
+//Set default db
+db.defaults({ books: [], user: []})
+  .write()
 
-router.get('/books', (req, res) => {
+router.get('/', (req, res) => {
   res.render('books', {list : db.get('books').value()})
 })
-router.get('/books/create', (req, res) => {
+router.get('/create', (req, res) => {
   res.render('create')
 })
-router.post('/books/create', (req, res) => {
+router.post('/create', (req, res) => {
   const book = {
     id: shortid.generate(),
     title: req.body.title,
@@ -16,18 +25,18 @@ router.post('/books/create', (req, res) => {
   db.get('books').push(book).write()
   res.redirect('/books')
 })
-router.get('/books/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const book = db.get('books').find({id: req.params.id}).value()
   res.render('edit', {book: book})
 })
-router.post('/books/:id', (req, res) => {
+router.post('/:id', (req, res) => {
   db.get('books')
   .find({ id: req.params.id})
   .assign({ title: req.body.title, description: req.body.description})
   .write()
   res.redirect('/books')
 })
-router.get('/books/:id/delete', (req, res) => {
+router.get('/:id/delete', (req, res) => {
   db.get('books').remove({id: req.params.id}).write()
   res.redirect('/books')
 })
