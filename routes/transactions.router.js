@@ -14,7 +14,10 @@ router.get('/', (req, res) => {
   res.render('transactions', {trans: db.get('rents').value()})
 })
 router.get('/transactions/create', (req, res) => {
-  res.render('transactions_create')
+  res.render('transactions_create',{
+    users: db.get('users').value(),
+    books: db.get('books').value()
+  })
 })
 router.post('/transactions/create', (req, res) => {
   

@@ -1,8 +1,11 @@
-h1.text-center Edit user
+h1.text-center New rent book
 .container
   .form-group
     label(for='name') Name:
       input.form-control(type='text', name='name')
+      select.form-control
+        each user in users
+          option(value= user.id) user.name
   .form-group
     label(for='book') Email:
       input.form-control(type='text', name='email', value= user.email)
