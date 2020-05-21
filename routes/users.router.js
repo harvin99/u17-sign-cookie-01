@@ -19,8 +19,12 @@ router.post('/create_user', (req, res) => {
   const user = {
     id: shortid.generate(),
     name: req.body.name,
-    
+    email: req.body.email,
+    phone: req.body.phone
   }
+  db.get('users')
+    .post(user)
+    .write()
   res.redirect('/users')
 })
 module.exports = router
