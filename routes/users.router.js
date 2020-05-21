@@ -28,4 +28,20 @@ router.post('/create_user', (req, res) => {
     .write()
   res.redirect('/users')
 })
+router.get('/:id', (req, res) => {
+  const user = db.get('users').find({id: req.params.id}).value()
+  res.render('edit_user', {user: user})
+})
+router.post('/:id', (req, res) => {
+  db.get('users')
+  .find({ id: req.params.id})
+  .assign({ name: req.body.name, email: req.body.emai, phone: req.body.phone})
+  .write()
+  res.redirect('/users')
+})
+router.get('/:id/delete', (req, res) => {
+  db.get('users').remove({id: req.params.id}).write()
+  res.redirect('/users')
+})
+
 module.exports = router

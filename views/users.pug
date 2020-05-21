@@ -5,6 +5,6 @@ block content
     a.btn.btn-primary.mb-3(href='/users/create_user') New user
     ul 
       each user in users
-        li.mb-3= user.name 
-          a.btn.btn-danger.ml-3.float-right(href='/books/'+ user.id + '/delete' ) Delete
-          a.btn.btn-warning.ml-3.float-right(href= '/books/'+ user.id ) Detail
+        li.mb-3= user.name + ' ' + user.email + ' ' + user.phone
+          a.btn.btn-danger.ml-3.float-right(href='/users/'+ user.id + '/delete' ) Delete
+          a.btn.btn-warning.ml-3.float-right(href= '/users/'+ user.id ) Edit
