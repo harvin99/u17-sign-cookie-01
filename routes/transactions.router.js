@@ -19,13 +19,15 @@ router.get('/create', (req, res) => {
     books: db.get('books').value()
   })
 })
-router.post('/transactions/create', (req, res) => {
+router.post('/create', (req, res) => {
+  const selectedname = document.getElementById('selectedname')
+  const selectedbook = document.getElementById('selectedbook')
   const rent = {
-    
+    userId: selectedname.value,
+    bookId: selec
   }
-  db.get('rents').push({
-    
-  })
+  console.log(req.body)
+  db.get('rents').push(rent).write()
   res.redirect('/transactions')
 })
 module.exports = router
