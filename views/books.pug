@@ -6,6 +6,6 @@ block content
     ul
       each book in list
         li.mb-4= book.title
-          a.btn.btn-warning.ml-3 View
-          a.btn.btn-danger.ml-3 Delete
+          a.btn.btn-danger.ml-3.float-right(href='/books/'+ book.id + '/delete' ) Delete
+          a.btn.btn-warning.ml-3.float-right(href= '/books/'+ book.id ) View
     
