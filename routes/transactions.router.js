@@ -13,14 +13,19 @@ db.defaults({ books: [], users: [], rents: []})
 router.get('/', (req, res) => {
   res.render('transactions', {trans: db.get('rents').value()})
 })
-router.get('/transactions/create', (req, res) => {
+router.get('/create', (req, res) => {
   res.render('transactions_create',{
     users: db.get('users').value(),
     books: db.get('books').value()
   })
 })
 router.post('/transactions/create', (req, res) => {
-  
+  const rent = {
+    
+  }
+  db.get('rents').push({
+    
+  })
   res.redirect('/transactions')
 })
 module.exports = router

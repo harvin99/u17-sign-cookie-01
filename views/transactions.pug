@@ -2,7 +2,7 @@ extend ./layout/common.pug
 block content
   h1.text-center This is transaction page
   .container
-    a.btn.btn-primary.mb-3(href='/transactions/create') Rent book
+    a.btn.btn-primary.mb-3(href='transactions/create') Rent book
     ul 
       each tran in trans
         li.mb-3= tran.userId + ' ' + tran.bookId
