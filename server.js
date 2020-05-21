@@ -24,36 +24,7 @@ app.set('views', './views')
 app.get('/', (req,res) => {
   res.render('index')
 })
-app.get('/books', (req, res) => {
-  res.render('books', {list : db.get('books').value()})
-})
-app.get('/books/create', (req, res) => {
-  res.render('create')
-})
-app.post('/books/create', (req, res) => {
-  const book = {
-    id: shortid.generate(),
-    title: req.body.title,
-    description: req.body.description
-  }
-  db.get('books').push(book).write()
-  res.redirect('/books')
-})
-app.get('/books/:id', (req, res) => {
-  const book = db.get('books').find({id: req.params.id}).value()
-  res.render('edit', {book: book})
-})
-app.post('/books/:id', (req, res) => {
-  db.get('books')
-  .find({ id: req.params.id})
-  .assign({ title: req.body.title, description: req.body.description})
-  .write()
-  res.redirect('/books')
-})
-app.get('/books/:id/delete', (req, res) => {
-  db.get('books').remove({id: req.params.id}).write()
-  res.redirect('/books')
-})
+
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port)
