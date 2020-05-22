@@ -23,10 +23,9 @@ router.post('/create', (req, res) => {
   
   const rent = {
     userId: req.body.selectedname,
-    bookId: req.body.bookId
+    bookId: req.body.selectedbook
   }
-  console.log(rent)
-  //db.get('rents').push(rent).write()
+  db.get('rents').push(rent).write()
   res.redirect('/transactions')
 })
 module.exports = router

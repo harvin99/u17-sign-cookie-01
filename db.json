@@ -28,7 +28,11 @@
   "rents": [
     {},
     {},
-    {}
+    {},
+    {
+      "userId": "nT2KV_J1o",
+      "bookId": "937accNkD"
+    }
   ],
   "rent": []
 }
