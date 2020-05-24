@@ -6,4 +6,7 @@ block content
     ul 
       each tran in trans
         li.mb-3= tran.userId + ' ' + tran.bookId
-          a.btn.btn-primary.ml-3(href='/transactions/' + tran.Id + '/complete') Complete
+          if tran.isComplete
+            a.btn.btn-primary.ml-3(href='/transactions/' + tran.id + '/complete') Complete
+          else
+            a.btn.btn-primary.ml-3(href='/transactions/' + tran.id + '/complete') Completed

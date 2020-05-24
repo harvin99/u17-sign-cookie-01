@@ -7,6 +7,7 @@ const db = low(adapter)
 //Set default db
 db.defaults({ books: [], users: [], rents: []})
   .write()
+
 module.exports.getTransaction = (req, res) => {
   res.render('transactions', {trans: db.get('rents').value()})
 }
@@ -21,14 +22,15 @@ module.exports.postCreateTransaction = (req, res) => {
   const rent = {
     userId: req.body.selectedname,
     bookId: req.body.selectedbook,
-    isComplete: req
+    isComplete: true
   }
   db.get('rents').push(rent).write()
   res.redirect('/transactions')
 }
-module.exports.postIdTransactionToComplete = (req, res) => {
-  db.get('transactions')
-  .find({ title: 'low!' })
-  .assign({ title: 'hi!'})
+module.exports.getIdTransactionToComplete = (req, res) => {
+  db.get('rents')
+  .find({ id: req.params.id})
+  .assign({ isComplete: false})
   .write()
+  res.redirect('/transactions')
 }
