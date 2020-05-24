@@ -40,4 +40,7 @@ module.exports.postUserId = (req, res) => {
   .write()
   res.redirect('/users')
 }
-module.exports
+module.exports.getUserIdToDelete = (req, res) => {
+  db.get('users').remove({id: req.params.id}).write()
+  res.redirect('/users')
+}
