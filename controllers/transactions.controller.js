@@ -22,7 +22,7 @@ module.exports.postCreateTransaction = (req, res) => {
   const rent = {
     userId: req.body.selectedname,
     bookId: req.body.selectedbook,
-    isComplete: true
+    isComplete: false
   }
   db.get('rents').push(rent).write()
   res.redirect('/transactions')
@@ -30,7 +30,7 @@ module.exports.postCreateTransaction = (req, res) => {
 module.exports.getIdTransactionToComplete = (req, res) => {
   db.get('rents')
   .find({ id: req.params.id})
-  .assign({ isComplete: false})
+  .assign({ isComplete: true})
   .write()
   res.redirect('/transactions')
 }
