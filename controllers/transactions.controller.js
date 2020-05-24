@@ -20,8 +20,15 @@ module.exports.getCreateTransaction = (req, res) => {
 module.exports.postCreateTransaction = (req, res) => {
   const rent = {
     userId: req.body.selectedname,
-    bookId: req.body.selectedbook
+    bookId: req.body.selectedbook,
+    isComplete: req
   }
   db.get('rents').push(rent).write()
   res.redirect('/transactions')
+}
+module.exports.postIdTransactionToComplete = (req, res) => {
+  db.get('transactions')
+  .find({ title: 'low!' })
+  .assign({ title: 'hi!'})
+  .write()
 }
