@@ -5,7 +5,7 @@ const shortid = require('shortid')
 const adapter = new FileSync('db.json')
 const db = low(adapter)
 //Set default db
-db.defaults({ books: [], user: [], rents: []})
+db.defaults({ books: [], users: [], rents: []})
   .write()
 
 module.exports.getBook = (req, res) => {
