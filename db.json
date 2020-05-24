@@ -20,15 +20,13 @@
       "phone": "123321"
     },
     {
-      "id": "nT2KV_J1o",
+      "id": "e-Nj-3L2u",
       "name": "Trần Quang Huy",
+      "email": "kabuki2722@gmail.com",
       "phone": "123321"
     }
   ],
   "rents": [
-    {},
-    {},
-    {},
     {
       "userId": "nT2KV_J1o",
       "bookId": "937accNkD"
