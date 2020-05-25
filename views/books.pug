@@ -9,15 +9,9 @@ block content
           th Title
           th  
       tbody
-        
-        tr
-          td John
-          td john@example.com
-
-    
-    ul
-      each book in list
-        li.mb-4= book.title
-          a.btn.btn-danger.ml-3.float-right(href='/books/'+ book.id + '/delete' ) Delete
-          a.btn.btn-warning.ml-3.float-right(href= '/books/'+ book.id ) View
-    
+        each book in list
+          tr
+            td= book.title
+            td 
+              a.btn.btn-danger.ml-3.float-right(href='/books/'+ book.id + '/delete' ) Delete
+              a.btn.btn-warning.ml-3.float-right(href= '/books/'+ book.id ) View
