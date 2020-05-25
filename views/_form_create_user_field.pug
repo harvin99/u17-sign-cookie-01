@@ -2,12 +2,12 @@ h1.text-center Create user
 .container
   .form-group
     label(for='name') Name:
-      input.form-control(type='text', name='name')
+      input.form-control(type='text', name='name', value= values ? values.name : '')
   .form-group
     label(for='email') Email:
-      input.form-control(type='text', name='email')
+      input.form-control(type='text', name='email', value= values ? values.email : '')
   .form-group
     label(for='phone') Phone:
-      input.form-control(type='text', name='phone')
+      input.form-control(type='text', name='phone', value= values ? values.phone : '')
   button.btn.btn-primary.mr-2(type='submit') Save
   a.btn.btn-secondary(href='/users') Cancel

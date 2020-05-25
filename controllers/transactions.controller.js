@@ -38,7 +38,6 @@ module.exports.getIdTransactionToComplete = (req, res) => {
         .find({ id: req.params.id})
         .assign({ isComplete: true})
         .write()
-    //res.redirect('/transactions')
-      res.send('complete')
+    res.redirect('/transactions')
     }
 }

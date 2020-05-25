@@ -15,6 +15,20 @@ module.exports.createUser = (req, res) => {
   res.render('create_user')
 }
 module.exports.postCreateUser = (req, res) => {
+  const errors = []
+  if(req.body.name.length <= 30)
+    errors.push('Name length is required more than 30 charaters')
+  if(!req.body.email)
+    errors.push('Email is required')
+  if(!req.body.phone)
+    errors.push('Phone is required')
+  if(errors.length){
+    res.render('create_user', {
+      errors: errors,
+      values: req.body
+    })
+    return
+  }
   const user = {
     id: shortid.generate(),
     name: req.body.name,
