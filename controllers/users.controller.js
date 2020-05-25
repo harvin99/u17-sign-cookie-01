@@ -16,8 +16,10 @@ module.exports.createUser = (req, res) => {
 }
 module.exports.postCreateUser = (req, res) => {
   const errors = []
-  if(req.body.name.length <= 30)
-    errors.push('Name length is required more than 30 charaters')
+  if(req.body.name.length >= 30)
+    errors.push('Name length is too more than 30 charaters')
+  if(!req.body.name)
+    errors.push('Name is required')
   if(!req.body.email)
     errors.push('Email is required')
   if(!req.body.phone)
