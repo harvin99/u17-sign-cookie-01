@@ -28,9 +28,17 @@ module.exports.postCreateTransaction = (req, res) => {
   res.redirect('/transactions')
 }
 module.exports.getIdTransactionToComplete = (req, res) => {
-  db.get('rents')
-  .find({ id: req.params.id})
-  .assign({ isComplete: true})
-  .write()
-  res.redirect('/transactions')
+  const rent = db.get('rents').find({id: req.params.id})
+  console.log(rent)
+  if(rent == null)
+    res.render('error')
+  else
+    {
+      db.get('rents')
+        .find({ id: req.params.id})
+        .assign({ isComplete: true})
+        .write()
+    //res.redirect('/transactions')
+      res.send('complete')
+    }
 }
