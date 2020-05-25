@@ -11,6 +11,8 @@ const transactionsRouter = require('./routes/transactions.router.js')
 
 //For body parser 
 app.use(express.urlencoded({extended: false}))
+//For favicon
+app.use(express.static('public'))
 
 //Set view engine template
 app.set('view engine', 'pug')
