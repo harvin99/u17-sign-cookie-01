@@ -54,3 +54,7 @@ footer {
   padding-top: 1.5em;
   border-top: 1px solid lightgrey;
 }
+.logo {
+  height: 45px;
+  width: 45px;
+}
