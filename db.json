@@ -9,11 +9,6 @@
       "id": "937accNkD",
       "title": "Lịch sử thế giới",
       "description": "Các sự kiện đã qua"
-    },
-    {
-      "id": "ukq3_u8dE",
-      "title": "Tôi, thế giới và tương lai",
-      "description": "Huấn Rose"
     }
   ],
   "users": [
@@ -27,6 +22,12 @@
       "id": "e-Nj-3L2u",
       "name": "Trần Quang Huy",
       "email": "kabuki2722@gmail.com",
+      "phone": "123321"
+    },
+    {
+      "id": "Y7h9IAQ62",
+      "name": "HarVin",
+      "email": "abc@amagi.com",
       "phone": "123321"
     }
   ],
