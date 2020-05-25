@@ -3,6 +3,18 @@ block content
   h1.text-center This is books page
   .container
     a.btn.btn-primary.mb-3(href='/books/create') New book
+    table.table.table-striped
+      thead
+        tr
+          th Title
+          th  
+      tbody
+        
+        tr
+          td John
+          td john@example.com
+
+    
     ul
       each book in list
         li.mb-4= book.title
