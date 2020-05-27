@@ -4,9 +4,7 @@ const shortid = require('shortid')
 //for db
 const adapter = new FileSync('db.json')
 const db = low(adapter)
-//Set default db
-db.defaults({ books: [], users: [], rents: []})
-  .write()
+
 
 module.exports.getTransaction = (req, res) => {
   res.render('transactions', {trans: db.get('rents').value()})
