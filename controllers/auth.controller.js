@@ -30,5 +30,6 @@ module.exports.postLogin = (req, res) => {
     })
     return 
   }
+  res.cookie('user_id', user.id)
   res.redirect('/users')
 }
