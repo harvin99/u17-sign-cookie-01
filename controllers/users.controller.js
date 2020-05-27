@@ -8,9 +8,6 @@ const db = low(adapter)
 module.exports.getUser = (req, res) => {
   res.render('users', {users: db.get('users').value()})
 }
-module.exports.login = (req, res) => {
-  res.render('users/login')
-}
 module.exports.createUser = (req, res) => {
   res.render('create_user')
 }

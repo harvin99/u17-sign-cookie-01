@@ -5,9 +5,10 @@
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 const express = require("express")
 const app = express()
-const booksRouter = require('./routes/books.router.js')
-const usersRouter = require('./routes/users.router.js')
-const transactionsRouter = require('./routes/transactions.router.js')
+const booksRouter = require('./routes/books.router')
+const usersRouter = require('./routes/users.router')
+const authRouter = require('./routes/auth.router')
+const transactionsRouter = require('./routes/transactions.router')
 
 //For body parser 
 app.use(express.urlencoded({extended: false}))
@@ -23,6 +24,7 @@ app.get('/', (req,res) => {
 })
 app.use('/books', booksRouter)
 app.use('/users', usersRouter)
+app.use('/auth', authRouter)
 app.use('/transactions', transactionsRouter)
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
