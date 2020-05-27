@@ -10,6 +10,8 @@ const usersRouter = require('./routes/users.router')
 const authRouter = require('./routes/auth.router')
 const transactionsRouter = require('./routes/transactions.router')
 
+const authMiddleware = require('./middlewares/auth.middleware')
+
 //For body parser 
 app.use(express.urlencoded({extended: false}))
 //For favicon
@@ -23,7 +25,7 @@ app.get('/', (req,res) => {
   res.render('index')
 })
 app.use('/books', booksRouter)
-app.use('/users', usersRouter)
+app.use('/users', authMiddleware.requireAuth, usersRouter)
 app.use('/auth', authRouter)
 app.use('/transactions', transactionsRouter)
 // listen for requests :)
