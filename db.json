@@ -13,25 +13,11 @@
   ],
   "users": [
     {
-      "id": "o8M8fiDsp",
-      "name": "HarVin",
-      "email": "hungtx1001@gmail.com",
-      "phone": "123321",
-      "password": "123456"
-    },
-    {
-      "id": "e-Nj-3L2u",
-      "name": "Trần Quang Huy",
-      "email": "kabuki2722@gmail.com",
-      "phone": "123321",
-      "password": "123456"
-    },
-    {
-      "id": "9Qb46IH3A",
-      "name": "PhiML",
-      "email": "abc@amagi.com",
-      "phone": "123321",
-      "password": "123456"
+      "id": "123admin123",
+      "name": "admin",
+      "email": "admin@admin.com",
+      "phone": "0987999777",
+      "password": "admin"
     }
   ],
   "rents": []

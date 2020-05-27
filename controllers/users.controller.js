@@ -12,13 +12,23 @@ module.exports.createUser = (req, res) => {
   res.render('create_user')
 }
 module.exports.postCreateUser = (req, res) => {
-  const id = shortid.generate()
+  const existEmailUser = db.get('users').find({email: req.body.email}).value()
+  if(existEmailUser){
+    res.render('create_user', {
+      values: req.body,
+      errors: [
+        'Email was exist !'
+      ]
+    })
+    return
+  }
   const user = {
-    id: id,
+    id: shortid.generate(),
     name: req.body.name,
-    email: req.body.email + id,
+    email: req.body.email,
     phone: req.body.phone,
-    password: req.body.password
+    password: req.body.password,
+    isAdmin: false
   }
   db.get('users')
     .push(user)
