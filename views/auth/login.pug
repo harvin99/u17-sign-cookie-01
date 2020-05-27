@@ -1,15 +1,12 @@
 extend ../layout/common.pug
 block content
-  h1.text-center This is login page
-  form(action="", method="POST")
-    .form-group
-      label(for='name') Name:
-        input.form-control(type='text', name='name', value= values ? values.name : '')
-    .form-group
-      label(for='email') Email:
-        input.form-control(type='text', name='email', value= values ? values.email : '')
-    .form-group
-      label(for='phone') Phone:
-        input.form-control(type='text', name='phone', value= values ? values.phone : '')
-    button.btn.btn-primary.mr-2(type='submit') Save
-    a.btn.btn-secondary(href='/users') Cancel
+  .container
+    h2.text-center Login
+    form(method="POST")
+      .form-group
+        label(for='email') Email:
+        input.form-control(type='email', placeholder='Enter email', name='email')
+      .form-group
+        label(for='password') Password:
+        input#pwd.form-control(type='password', placeholder='Enter password', name='password')
+      button.btn.btn-primary(type='submit') Login
