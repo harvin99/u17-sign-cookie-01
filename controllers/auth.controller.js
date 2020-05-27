@@ -12,6 +12,7 @@ module.exports.postLogin = (req, res) => {
   const password = req.body.password
   
   const user = db.get('users').find({email: email}).value()
+  
   if(!user){
     res.render('auth/login', {
       errors: [

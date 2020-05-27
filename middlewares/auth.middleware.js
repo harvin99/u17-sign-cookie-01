@@ -6,6 +6,8 @@ const db = low(adapter)
 
 
 module.exports.requireAuth = (req, res, next) => {
+  console.log(req.cookies.userId)
+  
   if(!req.cookies.userId){
     res.redirect('/auth/login')
     return
