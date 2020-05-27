@@ -34,31 +34,5 @@
       "password": "123456"
     }
   ],
-  "rents": [
-    {
-      "userId": "o8M8fiDsp",
-      "bookId": "6RFWnDf70",
-      "isComplete": true
-    },
-    {
-      "userId": "e-Nj-3L2u",
-      "bookId": "937accNkD",
-      "isComplete": true
-    },
-    {
-      "userId": "o8M8fiDsp",
-      "bookId": "6RFWnDf70",
-      "isComplete": false
-    },
-    {
-      "userId": "e-Nj-3L2u",
-      "bookId": "6RFWnDf70",
-      "isComplete": false
-    },
-    {
-      "userId": "o8M8fiDsp",
-      "bookId": "6RFWnDf70",
-      "isComplete": false
-    }
-  ]
+  "rents": []
 }

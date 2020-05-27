@@ -8,6 +8,8 @@ module.exports.validatePostCreateUser = (req, res, next) => {
     errors.push('Email is required')
   if(!req.body.phone)
     errors.push('Phone is required')
+  if(req.body.password !== req.body.confirm_password)
+    errors.push('Password is not matcched with confirm password')
   if(errors.length){
     res.render('create_user', {
       errors: errors,

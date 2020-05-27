@@ -12,11 +12,13 @@ module.exports.createUser = (req, res) => {
   res.render('create_user')
 }
 module.exports.postCreateUser = (req, res) => {
+  const id = shortid.generate()
   const user = {
-    id: shortid.generate(),
+    id: id,
     name: req.body.name,
-    email: req.body.email,
-    phone: req.body.phone
+    email: req.body.email + id,
+    phone: req.body.phone,
+    password: req.body.password
   }
   db.get('users')
     .push(user)
@@ -33,7 +35,7 @@ module.exports.getUserId = (req, res) => {
 module.exports.postUserId = (req, res) => {
   db.get('users')
   .find({ id: req.params.id})
-  .assign({ name: req.body.name, email: req.body.emai, phone: req.body.phone})
+  .assign({ name: req.body.name, phone: req.body.phone})
   .write()
   res.redirect('/users')
 }
