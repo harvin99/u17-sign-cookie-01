@@ -2,7 +2,8 @@ extend ./layout/common.pug
 block content
   h1.text-center This is books page
   .container
-    a.btn.btn-primary.mb-3(href='/books/create') New book
+    if user.isAdmin
+      a.btn.btn-primary.mb-3(href='/books/create') New book
     table.table.table-striped
       thead
         tr

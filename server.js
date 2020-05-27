@@ -25,10 +25,10 @@ app.set('views', './views')
 app.get('/', (req,res) => {
   res.render('index')
 })
-app.use('/books', booksRouter)
+app.use('/books', authMiddleware.requireAuth, booksRouter)
 app.use('/users', authMiddleware.requireAuth,  usersRouter)
 app.use('/auth', authRouter)
-app.use('/transactions', transactionsRouter)
+app.use('/transactions', authMiddleware.requireAuth, transactionsRouter)
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port)
