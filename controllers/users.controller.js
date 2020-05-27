@@ -4,12 +4,12 @@ const shortid = require('shortid')
 //for db
 const adapter = new FileSync('db.json')
 const db = low(adapter)
-//Set default db
-db.defaults({ books: [], users: [], rents: []})
-  .write()
 
 module.exports.getUser = (req, res) => {
   res.render('users', {users: db.get('users').value()})
+}
+module.exports.login = (req, res) => {
+  res.render('users/login')
 }
 module.exports.createUser = (req, res) => {
   res.render('create_user')

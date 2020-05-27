@@ -1,5 +1,4 @@
 extend ./layout/common.pug
 block content
-  .container
-    form(action='/books/create', method="POST")
-      include _form_create_field.pug
+  form(action='/books/create', method="POST")
+    include _form_create_field.pug
