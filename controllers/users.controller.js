@@ -12,12 +12,15 @@ module.exports.getUser = (req, res) => {
     .value();
   if (user.isAdmin) {
     res.render("users", {
-      users: db.get("users").value()
+      users: db.get("users").value(),
+      countUser: db.get("users").value().length,
+      isAdmin: true
     });
   }
   else{
     res.render("users", {
-      users: db.get('users').find({id: user.id})
+      users: user,
+      countUser: 1
     })
   }
 };
