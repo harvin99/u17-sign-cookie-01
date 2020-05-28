@@ -17,24 +17,8 @@
       "name": "admin",
       "email": "admin@admin.com",
       "phone": "0987999777",
-      "password": "admin",
+      "password": "21232f297a57a5a743894a0e4a801fc3",
       "isAdmin": true
-    },
-    {
-      "id": "KuTwX4hP_",
-      "name": "Tran Hung",
-      "email": "hungtx1001@gmail.com",
-      "phone": "123321",
-      "password": "123456",
-      "isAdmin": false
-    },
-    {
-      "id": "ZgSctIuJX",
-      "name": "HarVin",
-      "email": "abc@amagi.com",
-      "phone": "123321",
-      "password": "123456",
-      "isAdmin": false
     }
   ],
   "rents": []
