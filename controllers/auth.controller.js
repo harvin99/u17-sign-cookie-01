@@ -26,7 +26,7 @@ module.exports.postLogin = async (req, res) => {
     return
   }
   
-  if(!await bcrypt.compare(user.password, password)){
+  if(!await bcrypt.compare(password, user.password)){
     res.render('auth/login', {
       errors: [
         'Wrong password'
