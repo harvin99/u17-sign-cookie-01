@@ -12,14 +12,7 @@
     }
   ],
   "users": [
-    {
-      "id": "123admin123",
-      "name": "admin",
-      "email": "admin@admin.com",
-      "phone": "0987999777",
-      "password": "21232f297a57a5a743894a0e4a801fc3",
-      "isAdmin": true
-    }
+    
     
   ],
   "rents": []

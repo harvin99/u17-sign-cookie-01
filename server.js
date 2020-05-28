@@ -26,7 +26,7 @@ app.get('/', (req,res) => {
   res.render('index')
 })
 app.use('/books', authMiddleware.requireAuth, booksRouter)
-app.use('/users', authMiddleware.requireAuth,  usersRouter)
+app.use('/users',  usersRouter)
 app.use('/auth', authRouter)
 app.use('/transactions', authMiddleware.requireAuth, transactionsRouter)
 // listen for requests :)
