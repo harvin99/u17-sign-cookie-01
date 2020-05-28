@@ -1,4 +1,4 @@
-const md5 = require('md5')
+
 const bcrypt = require('bcrypt')
 
 const low = require('lowdb')
@@ -10,7 +10,7 @@ const db = low(adapter)
 module.exports.login = (req, res) => {
   res.render('auth/login')
 }
-module.exports.postLogin = (req, res) => {
+module.exports.postLogin = async (req, res) => {
   const email = req.body.email
   const password = req.body.password
   
@@ -25,8 +25,8 @@ module.exports.postLogin = (req, res) => {
     })
     return
   }
-  const hashedPassword = md5(password)
-  if(user.password !== hashedPassword){
+  
+  if(!await bcrypt.compare(user.password, password)){
     res.render('auth/login', {
       errors: [
         'Wrong password'
