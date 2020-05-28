@@ -1,4 +1,6 @@
 const md5 = require('md5')
+const bcrypt = require('bcrypt')
+
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 
