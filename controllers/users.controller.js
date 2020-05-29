@@ -9,7 +9,7 @@ const db = low(adapter);
 module.exports.getUser = (req, res) => {
   const user = db
     .get("users")
-    .find({ id: req.cookies.userId })
+    .find({ id: req.signedCookies.userId })
     .value();
   if (user.isAdmin) {
     res.render("users", {

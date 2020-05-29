@@ -6,7 +6,7 @@ const adapter = new FileSync("db.json");
 const db = low(adapter);
 
 module.exports.getBook = (req, res) => {
-  const user = db.get('users').find({id : req.cookies.userId}).value()
+  const user = db.get('users').find({id : req.signedCookies.userId}).value()
   console.log(user)
   res.render("books", {
     list: db.get("books").value(),

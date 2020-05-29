@@ -17,7 +17,8 @@ const authMiddleware = require('./middlewares/auth.middleware')
 app.use(express.urlencoded({extended: false}))
 //For favicon
 app.use(express.static('public'))
-app.use(cookieParser())
+app.use(cookieParser('NLpia0909uhkagsdyuqw%^$AJS'))
+
 //Set view engine template
 app.set('view engine', 'pug')
 app.set('views', './views')
